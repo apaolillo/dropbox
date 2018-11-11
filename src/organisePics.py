@@ -82,7 +82,8 @@ class PicOrganiser(object):
                 years[year][month] = list()
 
             years[year][month].append(filename)
-        pprint(years)
+            print(filename)
+        #pprint(years)
 
         # Create directory tree
         self._mkdir(TARGET_PICS_DIR)
@@ -104,9 +105,9 @@ class PicOrganiser(object):
                                                 m=month,
                                                 f=filename)
 
-            #self._dbx.files_copy(file_src, file_dst)
-            #self._dbx.files_move(file_src, file_dst)
             print("Moving {} to {}".format(file_src, file_dst))
+            #self._dbx.files_copy(file_src, file_dst)
+            self._dbx.files_move(file_src, file_dst)
 
 
 if __name__ == '__main__':
